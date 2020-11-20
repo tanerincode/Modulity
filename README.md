@@ -2,9 +2,9 @@
 
 Simple Laravel Module Generator.
 
-[![Build Status](https://travis-ci.org/tanerincode/module-generator.svg?branch=master)](https://packagist.org/packages/tanerincode/module-generator) [![MIT License](https://camo.githubusercontent.com/e65c945b219ec6c6f63826a83df905b3191ae52c/68747470733a2f2f706f7365722e707567782e6f72672f6c61726176656c2f6672616d65776f726b2f6c6963656e73652e737667)](LICENSE) [![Coverage Status](https://coveralls.io/repos/github/tanerincode/module-generator/badge.svg?branch=master)](https://coveralls.io/github/tanerincode/module-generator?branch=master)
+[![Build Status](https://travis-ci.org/tanerincode/module-generator.svg?branch=master)](https://packagist.org/packages/tanerincode/modulity) [![MIT License](https://camo.githubusercontent.com/e65c945b219ec6c6f63826a83df905b3191ae52c/68747470733a2f2f706f7365722e707567782e6f72672f6c61726176656c2f6672616d65776f726b2f6c6963656e73652e737667)](LICENSE) [![Coverage Status](https://coveralls.io/repos/github/tanerincode/modulity/badge.svg?branch=master)](https://coveralls.io/github/tanerincode/modulity?branch=master)
 [![security](https://img.shields.io/badge/security-2%2F4-green)](SECURITY.md)
-[![stable](https://img.shields.io/badge/stable-2.0.1-yellowgreen)](https://packagist.org/packages/tanerincode/module-generator)
+[![stable](https://img.shields.io/badge/stable-1.0.1-yellowgreen)](https://packagist.org/packages/tanerincode/modulity)
 
 
 ## Getting Started
@@ -30,7 +30,7 @@ A step by step series of examples that tell you how to get a development env run
 Step 1 : require composer package
 
 ```
-composer require tanerincode/module-generator
+composer require tanerincode/modulity
 ```
 
 
@@ -40,22 +40,22 @@ Step 2 : if this package not working automatically add provider in `config/app.p
 TanerInCode\Modulity\Providers\ModulityServiceProvider::class,
 ```
 
-Step 3 : Publish config file and select `mgenerator.php` 
+Step 3 : Publish config file and select `modulity.config` 
 
 ```
 php artisan vendor:publish
 ```
 
-Step 4 : Update Modules Namespace, `mgenerator.php` or `.env` file 
+Step 4 : Update Modules Namespace, `modulity.php` or `.env` file 
 
 ```
-'name_space' => getenv("MODULE_GENERATOR_NAMESPACE", 'ChangeHere')
+'name_space' => env("MODULE_GENERATOR_NAMESPACE", 'TanerInCode')
 ```
 
 OR
 
 ```
-MODULE_GENERATOR_NAMESPACE=ChangeHere
+MODULE_GENERATOR_NAMESPACE=TanerInCode
 ```
 
 **PS: Do not touch `src_url`.**
