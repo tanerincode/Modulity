@@ -26,7 +26,7 @@ class ModulityServiceProvider extends ServiceProvider
         if ( $this->app->runningInConsole() )
         {
             $this->publishes([
-                __DIR__ . '/../../config/modulity.php' => config_path('modulity.php'),
+                __DIR__ . '/../config/modulity.php' => config_path('modulity.php'),
             ], 'modulity.config');
 
 
