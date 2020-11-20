@@ -1,0 +1,10 @@
+<?php
+
+
+namespace #name_space#\#Module#\Services;
+
+
+interface #ClassName#ServiceInterface
+{
+    #code
+}

@@ -1,0 +1,12 @@
+language: php
+install:
+  - composer install
+  
+php:
+  - 7.2
+
+script:
+  - composer create-project --prefer-dist laravel/laravel example 
+
+after_script:
+  - php vendor/bin/coveralls -v

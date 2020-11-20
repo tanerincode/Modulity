@@ -1,0 +1,10 @@
+<?php
+
+
+namespace #name_space#\#Module#\Repositories;
+
+
+interface #ClassName#RepositoryInterface
+{
+    #code
+}

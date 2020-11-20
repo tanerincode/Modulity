@@ -1,0 +1,41 @@
+<?php
+
+
+namespace #name_space#\#Module#;
+
+use Illuminate\Support\ServiceProvider;
+
+
+class #ClassName#ServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->mergeConfigFrom(__DIR__.'/config/#Module#.php', '#Module#');
+        $this->loadTranslationsFrom(__DIR__.'/Support/translations', '#Module#');
+
+        // Publishing is only necessary when using the CLI.
+        if ($this->app->runningInConsole()) {
+            $this->commands([]);
+        }
+        /**
+        * Automatically added files
+        */
+        // #do_not_touch#
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        // code
+    }
+}
