@@ -4,6 +4,7 @@
 namespace TanerInCode\Modulity;
 
 use Illuminate\Support\ServiceProvider;
+use TanerInCode\Modulity\Commands\ConfigGenerator;
 use TanerInCode\Modulity\Commands\ControllerGenerator;
 use TanerInCode\Modulity\Commands\FacadeGenerator;
 use TanerInCode\Modulity\Commands\InterfaceGenerator;
@@ -11,6 +12,7 @@ use TanerInCode\Modulity\Commands\ModuleGenerator;
 use TanerInCode\Modulity\Commands\ProviderGenerator;
 use TanerInCode\Modulity\Commands\RepositoryGenerator;
 use TanerInCode\Modulity\Commands\ServiceGenerator;
+use TanerInCode\Modulity\Commands\TranslationsGenerator;
 
 class ModulityServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,8 @@ class ModulityServiceProvider extends ServiceProvider
 
 
             $this->commands([
+                ConfigGenerator::class,
+                TranslationsGenerator::class,
                 ControllerGenerator::class,
                 FacadeGenerator::class,
                 InterfaceGenerator::class,
@@ -47,6 +51,8 @@ class ModulityServiceProvider extends ServiceProvider
      */
     public function register()
     {
-    	
+    	$this->app->bind('ModulityFacade', function (){
+    	    return new Modulity();
+        });
     }
 }

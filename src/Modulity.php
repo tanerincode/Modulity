@@ -77,7 +77,7 @@ class Modulity
         }
 
         try {
-            File::copy(__DIR__ . config('modulity.src_url') .'setups/'.$this->setupFolder.'/'.$this->setupFileName.'.stub',$class);
+            File::copy(__DIR__ . config('modulity.src_url').'setups/'.$this->setupFolder."/".$this->setupFileName.'.stub',$class);
         }catch (Exception $exception){
             Log::error('module generator log', [
                 'message' => $exception->getMessage(),
@@ -130,8 +130,8 @@ class Modulity
         $pathEn = $this->modulePath."/".$this->moduleName.$this->file_path."/en/".strtolower($this->className).".php";
 
         try {
-            File::copy(__DIR__ . config('modulity.src_url') .'setups/'.$this->setupFolder.'/'.$this->setupFileName.'.stub', $pathTr);
-            File::copy(__DIR__ . config('modulity.src_url') .'setups/'.$this->setupFolder.'/'.$this->setupFileName.'.stub', $pathEn);
+            File::copy(__DIR__ . config('modulity.src_url')."setups/".$this->setupFolder."/".$this->setupFileName.'.stub', $pathTr);
+            File::copy(__DIR__ . config('modulity.src_url')."setups/".$this->setupFolder."/".$this->setupFileName.'.stub', $pathEn);
         }catch (Exception $exception){
             Log::error('module generator log', [
                 'message' => $exception->getMessage(),
@@ -149,7 +149,7 @@ class Modulity
         $path = $this->modulePath."/".$this->moduleName.$this->file_path."/".strtolower($this->className).".php";
 
         try {
-            File::copy(__DIR__ . config('modulity.src_url') .'setups/'.$this->setupFolder.'/'.$this->setupFileName.'.stub', $path);
+            File::copy(__DIR__ . config('modulity.src_url')."setups/".$this->setupFolder."/".$this->setupFileName.'.stub', $path);
         }catch (Exception $exception){
             Log::error('module generator log', [
                 'message' => $exception->getMessage(),
