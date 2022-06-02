@@ -21,6 +21,7 @@ class Modulity
     public $interface;
     public $interfaceType;
     public $first;
+    public $testType;
 
     protected $file_path;
     protected $setupFolder;
@@ -35,6 +36,7 @@ class Modulity
         $this->interface = false;
         $this->first = false;
         $this->interfaceType = false;
+        $this->testType = "Unit";
     }
 
     public function generate()
@@ -95,13 +97,17 @@ class Modulity
         $setup = File::get($class);
         $step1 = str_replace('#name_space#', config('modulity.name_space'), $setup);
         $step2 = str_replace('#Module#', $this->moduleName, $step1);
-        if ( $this->first == true && ($this->type == ModulityFacade::TYPE_IS_SERVICE || $this->type == ModulityFacade::TYPE_IS_REPOSITORY) )
+        if ( $this->first && ($this->type == ModulityFacade::TYPE_IS_SERVICE || $this->type == ModulityFacade::TYPE_IS_REPOSITORY) )
         {
             $step2 = str_replace(' extends Service', "", $step2);
             $step2 = str_replace(' extends Repository', "", $step2);
         }
-        $lastStep = str_replace('#ClassName#', $this->className, $step2);
 
+        if ( $this->type == ModulityFacade::TYPE_IS_TEST ) {
+            $step2 = str_replace('#testType#', $this->testType, $step2);
+        }
+
+        $lastStep = str_replace('#ClassName#', $this->className, $step2);
         try {
             File::put($class, $lastStep);
         }catch (Exception $exception){
@@ -255,6 +261,12 @@ class Modulity
                 $this->setupFileName = 'translation';
                 $this->file_type = '';
                 break;
+            case ModulityFacade::TYPE_IS_TEST :
+                $this->file_path = "/Test"."/".$this->testType;
+                $this->setupFolder = 'tests';
+                $this->setupFileName = 'test';
+                $this->file_type = 'Test';
+                break;
         }
 
         return $this;
@@ -317,6 +329,16 @@ class Modulity
     public function setInterfaceType($interfaceType)
     {
         $this->interfaceType = $interfaceType;
+        return $this;
+    }
+
+    /**
+     * @param mixed $testType
+     * @return Modulity
+     */
+    public function setTestType($testType): Modulity
+    {
+        $this->testType = $testType;
         return $this;
     }
 

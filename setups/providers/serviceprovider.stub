@@ -16,7 +16,6 @@ class #ClassName#ServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->mergeConfigFrom(__DIR__.'/config/#Module#.php', '#Module#');
         $this->loadTranslationsFrom(__DIR__.'/Support/translations', '#Module#');
 
         // Publishing is only necessary when using the CLI.
