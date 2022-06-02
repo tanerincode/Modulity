@@ -12,6 +12,7 @@ use TanerInCode\Modulity\Commands\ModuleGenerator;
 use TanerInCode\Modulity\Commands\ProviderGenerator;
 use TanerInCode\Modulity\Commands\RepositoryGenerator;
 use TanerInCode\Modulity\Commands\ServiceGenerator;
+use TanerInCode\Modulity\Commands\TestGenerator;
 use TanerInCode\Modulity\Commands\TranslationsGenerator;
 
 class ModulityServiceProvider extends ServiceProvider
@@ -39,7 +40,8 @@ class ModulityServiceProvider extends ServiceProvider
                 ProviderGenerator::class,
                 RepositoryGenerator::class,
                 ServiceGenerator::class,
-                ModuleGenerator::class
+                ModuleGenerator::class,
+                TestGenerator::class
             ]);
         }
     }
