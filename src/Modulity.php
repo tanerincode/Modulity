@@ -262,7 +262,7 @@ class Modulity
                 $this->file_type = '';
                 break;
             case ModulityFacade::TYPE_IS_TEST :
-                $this->file_path = "/Test"."/".$this->testType;
+                $this->file_path = "/Tests"."/".$this->testType;
                 $this->setupFolder = 'tests';
                 $this->setupFileName = 'test';
                 $this->file_type = 'Test';
