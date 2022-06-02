@@ -36,7 +36,7 @@ class Modulity
         $this->interface = false;
         $this->first = false;
         $this->interfaceType = false;
-        $this->testType = "Unit";
+        $this->testType = ModulityFacade::TEST_TYPE_IS_UNIT;
     }
 
     public function generate()
